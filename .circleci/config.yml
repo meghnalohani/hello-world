@@ -36,7 +36,7 @@ jobs:
       - checkout
       - run: echo "text to output here" > output.txt
       - persist_to_workspace:
-          root: ~/
+          root: ./
           paths:
             - output.txt
 
@@ -45,8 +45,8 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - attach_workspace:
-          at: ~/
-      - run: cat ~/output.txt
+          at: ./
+      - run: cat ./output.txt
 
 workflows:
   my_workflow:
